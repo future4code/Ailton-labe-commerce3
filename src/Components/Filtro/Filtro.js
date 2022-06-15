@@ -23,10 +23,10 @@ class Filtro extends React.Component {
         <ContainerFiltros>
             <Titulo>Filtros</Titulo>
             <label>Valor mínimo:
-                <input value={this.props.inputValorMin} onChange={this.props.onChangeInputValorMin}></input>
+                <input type="number" value={this.props.inputValorMin} onChange={this.props.onChangeInputValorMin}></input>
             </label>
             <label>Valor máximo:
-                <input value={this.props.inputValorMax} onChange={this.props.onChangeInputValorMax}></input>
+                <input type="number" value={this.props.inputValorMax} onChange={this.props.onChangeInputValorMax}></input>
             </label>
             <label>Buscar:
                 <input></input>

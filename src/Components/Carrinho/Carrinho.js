@@ -3,10 +3,6 @@ import styled from 'styled-components';
 
 class Carrinho extends React.Component {
 
-    state = {
-      produtos: []
-    }
-    
     render() {
       
       return(
