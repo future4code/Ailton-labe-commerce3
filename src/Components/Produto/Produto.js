@@ -33,28 +33,6 @@ const ContainerCard = styled.div`
 
 class Produto extends React.Component {
 
------
-
-    adicionarAoCarrinho = (id) => {
-      const itensCarrinho = [...this.state.produto, ]
-    }
-
-    render() {
-
-
-      const componenteProduto = this.state.produto.map((produto, index) => {
-        return(
-          <Card key={index}>
-            <Img src={produto.imagem} />
-            <ContainerTexto>
-            <p>{produto.nome}</p>
-            <p>R$:{produto.preco}</p>
-            <button onClick={this.adicionarAoCarrinho}>Adicionar ao carrinho</button>
-            </ContainerTexto>
-          </Card>
-        );
-      });
-----
   state = {
     produto: [
       {
@@ -72,8 +50,12 @@ class Produto extends React.Component {
     ],
   };
 
+  adicionarAoCarrinho = (id) => {
+    const itensCarrinho = [...this.state.produto, ]
+  }
+
   render() {
-    // const componenteProduto = this.state.produto.map((produto) => {
+
       let arrFiltrado
 
       if(this.props.inputValorMin >= 0 && this.props.inputValorMax >= 0) {
@@ -91,20 +73,7 @@ class Produto extends React.Component {
           )
         })
       }
-      
-
-      // if(produto.preco >= this.props.inputValorMin || produto.preco <= this.props.inputValorMax) {
-      // return (
-      //   <Card>
-      //     <Img src={produto.imagem} />
-      //     <ContainerTexto>
-      //       <p>{produto.nome}</p>
-      //       <p>R$:{produto.preco}</p>
-      //       <button>Adicionar ao carrinho</button>
-      //     </ContainerTexto>
-      //   </Card>
-      //   )  
-      // };
+  
 
     return (
       <div>
