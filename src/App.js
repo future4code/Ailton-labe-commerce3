@@ -1,24 +1,46 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import styled from "styled-components";
+
+const ContainerFiltros = styled.div`
+  display: flex;
+  border: 1px solid black;
+  width: 15%;
+`
+
+const ContainerProdutos = styled.div`
+  display: flex;
+  border: 1px solid black;
+  width: 70%;
+  flex-direction: column;
+`
+
+const ContainerCarrinho = styled.div`
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  width: 15%;
+`
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <header>header</header>
+      <section className="main-container">
+        <ContainerFiltros>
+          <h3>Filtros</h3>
+        </ContainerFiltros>
+        <ContainerProdutos>
+          <div>Header</div>
+          <div>Produtos Card</div>
+        </ContainerProdutos>
+        <ContainerCarrinho>
+          <h3>Carrinho</h3>
+          <div>Carrinhos</div>
+          <p>Valor Total:</p>
+        </ContainerCarrinho>
+      </section>
+      <footer>Footer</footer>
     </div>
   );
 }
