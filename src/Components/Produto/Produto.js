@@ -73,6 +73,13 @@ class Produto extends React.Component {
           )
         })
       }
+      // if(this.props.inputBuscar !== "") {
+      //   arrBuscar = arrFiltrado.filter((produto) => {
+      //     if(produto.nome.includes(this.props.inputBuscar)) {
+      //       return produto
+      //     }
+      //   })
+      // }
   
 
     return (

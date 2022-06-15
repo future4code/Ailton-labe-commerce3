@@ -29,7 +29,7 @@ class Filtro extends React.Component {
                 <input type="number" value={this.props.inputValorMax} onChange={this.props.onChangeInputValorMax}></input>
             </label>
             <label>Buscar:
-                <input></input>
+                <input type="text" value={this.props.inputBuscar} onChange={this.props.onChangeInputBuscar}></input>
             </label>
         </ContainerFiltros>
     )

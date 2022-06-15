@@ -40,7 +40,8 @@ class App extends React.Component{
     }
     ],
     inputValorMin: "0",
-    inputValorMax: "0"
+    inputValorMax: "0",
+    inputBuscar: "",
   }
 
   onChangeInputValorMin = (event) => {
@@ -49,6 +50,10 @@ class App extends React.Component{
 
   onChangeInputValorMax = (event) => {
     this.setState({inputValorMax: event.target.value})
+  }
+
+  onChangeInputBuscar = (event) => {
+    this.setState({inputBuscar: event.target.value})
   }
 
   render() {
@@ -60,11 +65,11 @@ class App extends React.Component{
         inputValorMax={this.state.inputValorMax} onChangeInputValorMax={this.onChangeInputValorMax}/>
         <ContainerProdutos> 
           <Produtos>
-            <Produto inputValorMin={this.state.inputValorMin} inputValorMax={this.state.inputValorMax}/>
+            <Produto inputValorMin={this.state.inputValorMin} inputValorMax={this.state.inputValorMax} inputBuscar={this.state.inputBuscar}/>
           </Produtos>
         </ContainerProdutos>
+    
         <ContainerCarrinho>
-          
         </ContainerCarrinho>
       </section>
       <footer>Footer</footer>
