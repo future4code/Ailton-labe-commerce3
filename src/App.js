@@ -64,7 +64,7 @@ class App extends React.Component{
           </Produtos>
         </ContainerProdutos>
         <ContainerCarrinho>
-          <Carrinho />
+          
         </ContainerCarrinho>
       </section>
       <footer>Footer</footer>
