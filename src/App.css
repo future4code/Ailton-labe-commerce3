@@ -16,7 +16,9 @@ header {
 }
 
 footer {
+  bottom: 0;
   height: 8vh;
+  width: 100%;
   border: 1px solid black;
 }
 
