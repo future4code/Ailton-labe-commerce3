@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
+
 const Card = styled.div`
   height: 320px;
   width: 202px;
@@ -32,31 +33,22 @@ const ContainerCard = styled.div`
 
 class Produto extends React.Component {
 
-    state = {
-      produto: [{
-        id: "1",
-        imagem: "https://picsum.photos/seed/picsum/200/250",
-        nome: "Produto 1",
-        preco: "100"
-      },
-      {
-        id: "2",
-        imagem: "https://picsum.photos/seed/picsum/200/250",
-        nome: "Produto 2",
-        preco: "3500"
-      }
-    ]
+
+    adicionarAoCarrinho = (id) => {
+      const itensCarrinho = [...this.state.produto, ]
     }
 
     render() {
-      const componenteProduto = this.state.produto.map((produto) => {
+
+
+      const componenteProduto = this.state.produto.map((produto, index) => {
         return(
-          <Card>
+          <Card key={index}>
             <Img src={produto.imagem} />
             <ContainerTexto>
             <p>{produto.nome}</p>
             <p>R$:{produto.preco}</p>
-            <button>Adicionar ao carrinho</button>
+            <button onClick={this.adicionarAoCarrinho}>Adicionar ao carrinho</button>
             </ContainerTexto>
           </Card>
         );
