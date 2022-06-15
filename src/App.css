@@ -7,16 +7,16 @@
 .container {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: 100%;
 }
 
 header {
-  height: 8%;
+  height: 8vh;
   border: 1px solid black;
 }
 
 footer {
-  height: 8%;
+  height: 8vh;
   border: 1px solid black;
 }
 

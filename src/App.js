@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import styled from "styled-components";
+import Produto from './Components/Produto/Produto';
 
 const ContainerFiltros = styled.div`
   display: flex;
@@ -22,6 +23,11 @@ const ContainerCarrinho = styled.div`
   width: 15%;
 `
 
+const Produtos = styled.div`
+  display: flex;
+  
+`
+
 function App() {
   return (
     <div className="container">
@@ -31,8 +37,10 @@ function App() {
           <h3>Filtros</h3>
         </ContainerFiltros>
         <ContainerProdutos>
-          <div>Header</div>
-          <div>Produtos Card</div>
+          <div>Headerr</div>
+          <Produtos>
+            <Produto />
+          </Produtos>
         </ContainerProdutos>
         <ContainerCarrinho>
           <h3>Carrinho</h3>
