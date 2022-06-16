@@ -33,34 +33,13 @@ const ContainerCard = styled.div`
 
 class Produto extends React.Component {
 
-  state = {
-    produto: [
-      {
-        id: "1",
-        imagem: "https://picsum.photos/seed/picsum/200/250",
-        nome: "Produto 1",
-        preco: 100,
-      },
-      {
-        id: "2",
-        imagem: "https://picsum.photos/seed/picsum/200/250",
-        nome: "Produto 2",
-        preco: 3500,
-      },
-    ],
-  };
-
-  adicionarAoCarrinho = (id) => {
-    const itensCarrinho = [...this.state.produto, ]
-  }
-
   render() {
 
       let arrFiltrado
 
       if(this.props.inputValorMin >= 0 && this.props.inputValorMax >= 0) {
-        arrFiltrado = this.state.produto.map((produto) => {
-          if(produto.preco >= this.props.inputValorMin && (produto.preco <= this.props.inputValorMax || this.props.inputValorMax === "0"))
+        arrFiltrado = this.props.produto.map((produto) => {
+          if((produto.preco >= this.props.inputValorMin && (produto.preco <= this.props.inputValorMax || this.props.inputValorMax === "0")) && (produto.nome.toLowerCase().includes(this.props.inputBuscar)))
           return (
             <Card>
               <Img src={produto.imagem} />
@@ -73,18 +52,10 @@ class Produto extends React.Component {
           )
         })
       }
-      // if(this.props.inputBuscar !== "") {
-      //   arrBuscar = arrFiltrado.filter((produto) => {
-      //     if(produto.nome.includes(this.props.inputBuscar)) {
-      //       return produto
-      //     }
-      //   })
-      // }
-  
 
     return (
       <div>
-        <div>Quantidade de produtos: {this.state.produto.length}</div>
+        <div>Quantidade de produtos: {this.props.produto.length}</div>
         <ContainerCard>{arrFiltrado}</ContainerCard>
       </div>
     );
