@@ -34,19 +34,19 @@ const ContainerCard = styled.div`
 class Produto extends React.Component {
 
   render() {
-
+    
       let arrFiltrado
 
       if(this.props.inputValorMin >= 0 && this.props.inputValorMax >= 0) {
-        arrFiltrado = this.props.produto.map((produto) => {
-          if((produto.preco >= this.props.inputValorMin && (produto.preco <= this.props.inputValorMax || this.props.inputValorMax === "0")) && (produto.nome.toLowerCase().includes(this.props.inputBuscar)))
+        arrFiltrado = this.props.produto.map((produto, index) => {
+          if((produto.preco >= this.props.inputValorMin && (produto.preco <= this.props.inputValorMax || this.props.inputValorMax === "0")) && (produto.nome.toLowerCase().includes(this.props.inputBuscar.toLowerCase())))
           return (
-            <Card>
+            <Card key={index}>
               <Img src={produto.imagem} />
               <ContainerTexto>
                 <p>{produto.nome}</p>
                 <p>R$:{produto.preco}</p>
-                <button>Adicionar ao carrinho</button>
+                <button onClick={() => this.props.adicionarItemCarrinho(produto)}>Adicionar ao carrinho</button>
               </ContainerTexto>
             </Card>
           )

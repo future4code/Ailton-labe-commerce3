@@ -5,7 +5,7 @@ const ContainerFiltros = styled.div`
   display: flex;
   flex-direction: column;
   border: 1px solid black;
-  width: 15%;
+  width: 20%;
   height: 80vh;
   padding: 25px 10px;
   gap: 15px;
@@ -33,7 +33,7 @@ class Filtro extends React.Component {
                 <Input type="number" value={this.props.inputValorMax} onChange={this.props.onChangeInputValorMax} />
             </label>
             <label>Buscar:
-                <Input type="text" value={this.props.inputBuscar} onChange={this.props.onChangeInputBuscar} />
+                <Input type="text" value={this.props.inputBuscar} onChange={this.props.onChangeInputBuscar}/>
             </label>
             <button onClick={this.props.limparFiltro}>Limpar filtros</button>
         </ContainerFiltros>

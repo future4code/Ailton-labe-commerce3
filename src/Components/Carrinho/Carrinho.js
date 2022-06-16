@@ -1,14 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import Produto from "../Produto/Produto";
-
-
-const Card = styled.div`
-  height: 30px;
-  width: 100%;
-  display: flex;
-  padding: 5px;
-`
 
 const ContainerTexto = styled.div`
   display: flex;
@@ -20,31 +11,41 @@ const ContainerTexto = styled.div`
 
 const Botao = styled.button`
   height: 20px;
+  width: 35%;
+`
+
+const ContainerCarrinho = styled.div`
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  width: 20%;
+  height: 80vh;
 `
 
 class Carrinho extends React.Component {
   render() {
 
-    const carrinhos = this.props.carrinho.map((produto) => {
+    const carrinhos = this.props.carrinho.map((produto, index) => {
       return (
-        <div>
-          <Card>
+        <div key={index}>
             <ContainerTexto>
-              <p>1x</p>
+              <p>{produto.quantidade}x</p>
               <p>{produto.nome}</p>
-              <Botao>Remover</Botao>
+              <Botao onClick={() => this.props.removeProduto(produto.id)}>Remover</Botao>
             </ContainerTexto>
-          </Card>
-          <br />
-          <p>Valor Total:</p>
+          <br />  
         </div>
       )
     })
 
+    const somaPrecos = this.props.carrinho.map(item => item.preco).reduce((prev, curr) => prev + curr, 0);
+
     return (
-      <div>
+      <ContainerCarrinho>
+        <h3>Carrinho</h3>
         <div>{carrinhos}</div>
-      </div>
+        <p>Valor Total: R$ {somaPrecos}</p>
+      </ContainerCarrinho>
     );
   }
 }
