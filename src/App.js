@@ -3,6 +3,7 @@ import "./App.css";
 import styled from "styled-components";
 import Produto from './Components/Produto/Produto';
 import Filtro from './Components/Filtro/Filtro';
+import Carrinho from "./Components/Carrinho/Carrinho";
 
 const ContainerProdutos = styled.div`
   display: flex;
@@ -30,17 +31,34 @@ class App extends React.Component{
       id: "1",
       imagem: "https://picsum.photos/seed/picsum/200/250",
       nome: "Produto 1",
-      preco: "100"
+      preco: 100,
     },
     {
       id: "2",
       imagem: "https://picsum.photos/seed/picsum/200/250",
       nome: "Produto 2",
-      preco: "3500"
+      preco: 3500,
+    },
+    {
+      id: "3",
+      imagem: "https://picsum.photos/seed/picsum/200/250",
+      nome: "Produto 3",
+      preco: 4000,
     }
     ],
+    carrinho: [{
+      nome: [],
+    }],
     inputValorMin: "0",
-    inputValorMax: "0"
+    inputValorMax: "0",
+    inputBuscar: "",
+  }
+
+  limparFiltro = () => {
+    this.setState({inputValorMin: "0"})
+    this.setState({inputValorMax: "0"})
+    this.setState({inputBuscar: ""})
+    console.log('limpou')
   }
 
   onChangeInputValorMin = (event) => {
@@ -51,20 +69,25 @@ class App extends React.Component{
     this.setState({inputValorMax: event.target.value})
   }
 
+  onChangeInputBuscar = (event) => {
+    this.setState({inputBuscar: event.target.value})
+  }
+
   render() {
   return (
     <div className="container">
       <header>header</header>
       <section className="main-container">
         <Filtro inputValorMin={this.state.inputValorMin} onChangeInputValorMin={this.onChangeInputValorMin}
-        inputValorMax={this.state.inputValorMax} onChangeInputValorMax={this.onChangeInputValorMax}/>
+        inputValorMax={this.state.inputValorMax} onChangeInputValorMax={this.onChangeInputValorMax}
+        inputBuscar={this.state.inputBuscar} onChangeInputBuscar={this.onChangeInputBuscar} limparFiltro={this.limparFiltro}/>
         <ContainerProdutos> 
           <Produtos>
-            <Produto inputValorMin={this.state.inputValorMin} inputValorMax={this.state.inputValorMax}/>
+            <Produto produto={this.state.produto} inputValorMin={this.state.inputValorMin} inputValorMax={this.state.inputValorMax} inputBuscar={this.state.inputBuscar}/>
           </Produtos>
         </ContainerProdutos>
         <ContainerCarrinho>
-          <Carrinho />
+          <Carrinho carrinho={this.state.carrinho}/>
         </ContainerCarrinho>
       </section>
       <footer>Footer</footer>

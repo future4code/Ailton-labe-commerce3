@@ -15,6 +15,10 @@ const Titulo = styled.h3`
 margin-bottom: 10px;
 `
 
+const Input = styled.input`
+  width: 90%
+`
+
 class Filtro extends React.Component {
 
 
@@ -23,14 +27,15 @@ class Filtro extends React.Component {
         <ContainerFiltros>
             <Titulo>Filtros</Titulo>
             <label>Valor mínimo:
-                <input type="number" value={this.props.inputValorMin} onChange={this.props.onChangeInputValorMin}></input>
+                <Input type="number" value={this.props.inputValorMin} onChange={this.props.onChangeInputValorMin} />  
             </label>
             <label>Valor máximo:
-                <input type="number" value={this.props.inputValorMax} onChange={this.props.onChangeInputValorMax}></input>
+                <Input type="number" value={this.props.inputValorMax} onChange={this.props.onChangeInputValorMax} />
             </label>
             <label>Buscar:
-                <input></input>
+                <Input type="text" value={this.props.inputBuscar} onChange={this.props.onChangeInputBuscar} />
             </label>
+            <button onClick={this.props.limparFiltro}>Limpar filtros</button>
         </ContainerFiltros>
     )
   }
