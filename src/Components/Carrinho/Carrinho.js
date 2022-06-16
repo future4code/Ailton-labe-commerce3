@@ -31,18 +31,20 @@ class Carrinho extends React.Component {
             <ContainerTexto>
               <p>{produto.quantidade}x</p>
               <p>{produto.nome}</p>
-              <Botao>Remover</Botao>
+              <Botao onClick={() => this.props.removeProduto(produto.id)}>Remover</Botao>
             </ContainerTexto>
-          <br />
+          <br />  
         </div>
       )
     })
+
+    const somaPrecos = this.props.carrinho.map(item => item.preco).reduce((prev, curr) => prev + curr, 0);
 
     return (
       <ContainerCarrinho>
         <h3>Carrinho</h3>
         <div>{carrinhos}</div>
-        <p>Valor Total:</p>
+        <p>Valor Total: R$ {somaPrecos}</p>
       </ContainerCarrinho>
     );
   }
