@@ -45,10 +45,10 @@ class Produto extends React.Component {
 
   render() {
     
-      let arrFiltrado
+      let cardsFiltrados
 
       if(this.props.inputValorMin >= 0 && this.props.inputValorMax >= 0) {
-        arrFiltrado = this.props.produto
+        cardsFiltrados = this.props.produto
         .filter(produto => {
           return produto.nome.toLowerCase().includes(this.props.inputBuscar.toLowerCase())
         })
@@ -60,12 +60,11 @@ class Produto extends React.Component {
         })
         .sort((produto, segundoProduto) => {
           switch (this.props.filtro){
-            case "nome":
-              return produto.nome.localeCompare(segundoProduto.nome)
             case "crescente":
               return produto.preco - segundoProduto.preco
             default:
               return segundoProduto.preco - produto.preco
+
           }
         })
         .map((produto, index) => {
@@ -91,14 +90,13 @@ class Produto extends React.Component {
           <div>
             <label for="filtro">Ordenação: </label>
             <select name="filtro" value={this.props.filtro} onChange={this.props.onChangeFilter}>
-              <option value="nome">Nome</option>
               <option value="crescente">Crescente</option>
               <option value="decrescente">Decrescente</option>
             </select>
           </div>
         </HeaderCards>
         <ContainerCard>
-          {arrFiltrado}
+          {cardsFiltrados}
         </ContainerCard>
       </MainContainer>
     );

@@ -7,6 +7,7 @@ const ContainerTexto = styled.div`
   width: 100%;
   justify-content: space-between;
   align-items: center;
+  padding-left: 5px;
 `
 
 const Botao = styled.button`
@@ -14,7 +15,7 @@ const Botao = styled.button`
   width: 15%;
 `
 
-const ContainerCarrinho = styled.div`
+const ContainerCarrinhos = styled.div`
   display: flex;
   flex-direction: column;
   border: 1px solid black;
@@ -43,11 +44,11 @@ class Carrinho extends React.Component {
     const somaPrecos = this.props.carrinho.map(item => item.preco*item.quantidade).reduce((prev, curr) => prev + curr, 0);
 
     return (
-      <ContainerCarrinho>
+      <ContainerCarrinhos>
         <h3>Carrinho</h3>
         <div>{carrinhos}</div>
         <p>Valor Total: R$ {somaPrecos}</p>
-      </ContainerCarrinho>
+      </ContainerCarrinhos>
     );
   }
 }
