@@ -11,7 +11,7 @@ const ContainerTexto = styled.div`
 
 const Botao = styled.button`
   height: 20px;
-  width: 35%;
+  width: 15%;
 `
 
 const ContainerCarrinho = styled.div`
@@ -31,14 +31,16 @@ class Carrinho extends React.Component {
             <ContainerTexto>
               <p>{produto.quantidade}x</p>
               <p>{produto.nome}</p>
-              <Botao onClick={() => this.props.removeProduto(produto.id)}>Remover</Botao>
+              <Botao onClick={() => this.props.adicionarQuantidade(index)}>+</Botao>
+              <Botao onClick={() => this.props.removerQuantidade(index)}>-</Botao>
+              <Botao onClick={() => this.props.removeProduto(produto.id)}>X</Botao>
             </ContainerTexto>
           <br />  
         </div>
       )
     })
 
-    const somaPrecos = this.props.carrinho.map(item => item.preco).reduce((prev, curr) => prev + curr, 0);
+    const somaPrecos = this.props.carrinho.map(item => item.preco*item.quantidade).reduce((prev, curr) => prev + curr, 0);
 
     return (
       <ContainerCarrinho>

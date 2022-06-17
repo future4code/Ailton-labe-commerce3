@@ -22,43 +22,55 @@ class App extends React.Component{
     produto: [{
       id: 1,
       imagem: "https://picsum.photos/200/300?random=1",
-      nome: "Produto 1",
+      nome: "Produto",
       preco: 100,
+      quantidade: 1
 
     },
     {
       id: 2,
       imagem: "https://picsum.photos/200/300?random=2",
-      nome: "Produto 2",
-      preco: 3500,
+      nome: "Aroduto",
+      preco: 350,
+      quantidade: 1
 
     },
     {
       id: 3,
       imagem: "https://picsum.photos/200/300?random=3",
-      nome: "Produto 3",
-      preco: 4000,
+      nome: "Zroduto",
+      preco: 50,
+      quantidade: 1
+    },
+    {
+      id: 4,
+      imagem: "https://picsum.photos/200/300?random=4",
+      nome: "Produto",
+      preco: 500,
+      quantidade: 1
+
     }
     ],
     carrinho: [],
-    inputValorMin: "0",
-    inputValorMax: "0",
+    inputValorMin: "",
+    inputValorMax: "",
     inputBuscar: "",
     precoTotal: 0,
+    filtro: "nome",
   }
 
   limparFiltro = () => {
-    this.setState({inputValorMin: "0"})
-    this.setState({inputValorMax: "0"})
+    this.setState({inputValorMin: ""})
+    this.setState({inputValorMax: ""})
     this.setState({inputBuscar: ""})
   }
 
   adicionarItemCarrinho = (produto) => {
     const novoItem = {
+      id: produto.id,
       nome: produto.nome,
       preco: produto.preco,
-      id: produto.id,
-      quantidade: 1
+      quantidade: 1,
     }
 
     let novaListaCarrinho = [...this.state.carrinho, novoItem]
@@ -70,13 +82,28 @@ class App extends React.Component{
     this.setState({carrinho: novaListaCarrinho})
   } 
 
+  adicionarQuantidade = (index) => {
+    
+    const novoItem = [...this.state.carrinho];
+    if(novoItem[index].quantidade >= 0) {
+    novoItem[index].quantidade++;	
+    }
+    this.setState({carrinho: novoItem})
+  };
+
+  removerQuantidade = (index) => {
+    const novoItem = [...this.state.carrinho];
+    if(novoItem[index].quantidade > 1) {
+    novoItem[index].quantidade--;	
+    }
+    this.setState({carrinho: novoItem})
+  };
+
   removeProduto = (id) => {
     const produtoRemovido = this.state.carrinho.filter((produto) => {
       return id !== produto.id
     });
     this.setState({carrinho: produtoRemovido})
-    const somaPrecos = this.state.carrinho.map(item => item.preco).reduce((prev, curr) => prev + curr, 0);
-    this.setState({precoTotal: somaPrecos})
   }
 
   onChangeInputValorMin = (event) => {
@@ -91,7 +118,12 @@ class App extends React.Component{
     this.setState({inputBuscar: event.target.value})
   }
 
+  onChangeFilter = (event) => {
+    this.setState({filtro: event.target.value})
+  }
+
   render() {
+
 
   return (
     <div className="container">
@@ -102,10 +134,10 @@ class App extends React.Component{
         inputBuscar={this.state.inputBuscar} onChangeInputBuscar={this.onChangeInputBuscar} limparFiltro={this.limparFiltro}/>
         <ContainerProdutos> 
           <Produtos>
-            <Produto adicionarItemCarrinho={this.adicionarItemCarrinho} produto={this.state.produto} inputValorMin={this.state.inputValorMin} inputValorMax={this.state.inputValorMax} inputBuscar={this.state.inputBuscar}/>
+            <Produto filtro={this.state.filtro} onChangeFilter={this.onChangeFilter} adicionarItemCarrinho={this.adicionarItemCarrinho} produto={this.state.produto} inputValorMin={this.state.inputValorMin} inputValorMax={this.state.inputValorMax} inputBuscar={this.state.inputBuscar}/>
           </Produtos>
         </ContainerProdutos>
-          <Carrinho precoTotal={this.state.precoTotal} removeProduto={this.removeProduto} carrinho={this.state.carrinho}/>
+          <Carrinho removerQuantidade={this.removerQuantidade} adicionarQuantidade={this.adicionarQuantidade} precoTotal={this.state.precoTotal} removeProduto={this.removeProduto} carrinho={this.state.carrinho}/>
       </section>
       <footer>Footer</footer>
     </div>

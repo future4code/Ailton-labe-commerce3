@@ -31,6 +31,16 @@ const ContainerCard = styled.div`
   flex-wrap: wrap;
 `;
 
+const HeaderCards = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+`
+
+const MainContainer = styled.div`
+  width: 100%;
+`
+
 class Produto extends React.Component {
 
   render() {
@@ -38,9 +48,28 @@ class Produto extends React.Component {
       let arrFiltrado
 
       if(this.props.inputValorMin >= 0 && this.props.inputValorMax >= 0) {
-        arrFiltrado = this.props.produto.map((produto, index) => {
-          if((produto.preco >= this.props.inputValorMin && (produto.preco <= this.props.inputValorMax || this.props.inputValorMax === "0")) && (produto.nome.toLowerCase().includes(this.props.inputBuscar.toLowerCase())))
-          return (
+        arrFiltrado = this.props.produto
+        .filter(produto => {
+          return produto.nome.toLowerCase().includes(this.props.inputBuscar.toLowerCase())
+        })
+        .filter(produto => {
+          return this.props.inputValorMin === "" || produto.preco >= this.props.inputValorMin
+        })
+        .filter(produto => {
+          return this.props.inputValorMax === "" || produto.preco <= this.props.inputValorMax
+        })
+        .sort((produto, segundoProduto) => {
+          switch (this.props.filtro){
+            case "nome":
+              return produto.nome.localeCompare(segundoProduto.nome)
+            case "crescente":
+              return produto.preco - segundoProduto.preco
+            default:
+              return segundoProduto.preco - produto.preco
+          }
+        })
+        .map((produto, index) => {
+          return (  
             <Card key={index}>
               <Img src={produto.imagem} />
               <ContainerTexto>
@@ -54,10 +83,24 @@ class Produto extends React.Component {
       }
 
     return (
-      <div>
-        <div>Quantidade de produtos: {this.props.produto.length}</div>
-        <ContainerCard>{arrFiltrado}</ContainerCard>
-      </div>
+      <MainContainer>
+        <HeaderCards>
+          <div>
+          <p>Quantidade de produtos: {this.props.produto.length}</p>
+          </div>
+          <div>
+            <label for="filtro">Ordenação: </label>
+            <select name="filtro" value={this.props.filtro} onChange={this.props.onChangeFilter}>
+              <option value="nome">Nome</option>
+              <option value="crescente">Crescente</option>
+              <option value="decrescente">Decrescente</option>
+            </select>
+          </div>
+        </HeaderCards>
+        <ContainerCard>
+          {arrFiltrado}
+        </ContainerCard>
+      </MainContainer>
     );
   }
 }
