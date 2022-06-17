@@ -5,15 +5,10 @@ import Produto from './Components/Produto/Produto';
 import Filtro from './Components/Filtro/Filtro';
 import Carrinho from "./Components/Carrinho/Carrinho";
 
-const ContainerProdutos = styled.div`
+const Produtos = styled.div`
   display: flex;
   border: 1px solid black;
   width: 60%;
-  flex-direction: column;
-`;
-
-const Produtos = styled.div`
-  display: flex;
 `
 
 class App extends React.Component{
@@ -56,7 +51,7 @@ class App extends React.Component{
     inputValorMax: "",
     inputBuscar: "",
     precoTotal: 0,
-    filtro: "nome",
+    filtro: "crescente",
   }
 
   limparFiltro = () => {
@@ -132,11 +127,9 @@ class App extends React.Component{
         <Filtro inputValorMin={this.state.inputValorMin} onChangeInputValorMin={this.onChangeInputValorMin}
         inputValorMax={this.state.inputValorMax} onChangeInputValorMax={this.onChangeInputValorMax}
         inputBuscar={this.state.inputBuscar} onChangeInputBuscar={this.onChangeInputBuscar} limparFiltro={this.limparFiltro}/>
-        <ContainerProdutos> 
           <Produtos>
             <Produto filtro={this.state.filtro} onChangeFilter={this.onChangeFilter} adicionarItemCarrinho={this.adicionarItemCarrinho} produto={this.state.produto} inputValorMin={this.state.inputValorMin} inputValorMax={this.state.inputValorMax} inputBuscar={this.state.inputBuscar}/>
           </Produtos>
-        </ContainerProdutos>
           <Carrinho removerQuantidade={this.removerQuantidade} adicionarQuantidade={this.adicionarQuantidade} precoTotal={this.state.precoTotal} removeProduto={this.removeProduto} carrinho={this.state.carrinho}/>
       </section>
       <footer>Footer</footer>
