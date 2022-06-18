@@ -4,6 +4,7 @@ import styled from "styled-components";
 import Produto from "./Components/Produto/Produto";
 import Filtro from "./Components/Filtro/Filtro";
 import Carrinho from "./Components/Carrinho/Carrinho";
+import OpcoesProduto from "./Components/OpcoesProduto/OpcoesProduto";
 
 const Produtos = styled.div`
   display: flex;
@@ -14,40 +15,62 @@ class App extends React.Component {
   state = {
     produto: [
       {
-        id: 1,
-        imagem: "https://picsum.photos/200/300?random=1",
-        nome: "Produto",
-        preco: 100,
+        imagem: "https://picsum.photos/200/300?random=2",
+        nome: "Produto 2",
+        preco: 150,
         quantidade: 1,
       },
       {
-        id: 2,
-        imagem: "https://picsum.photos/200/300?random=2",
-        nome: "Aroduto",
+        imagem: "https://picsum.photos/200/300?random=3",
+        nome: "Produto 3",
+        preco: 200,
+        quantidade: 1,
+      },
+      {
+        imagem: "https://picsum.photos/200/300?random=4",
+        nome: "Produto 4",
+        preco: 250,
+        quantidade: 1,
+      },
+      {
+        imagem: "https://picsum.photos/200/300?random=5",
+        nome: "Produto 5",
+        preco: 300,
+        quantidade: 1,
+      },
+      {
+        imagem: "https://picsum.photos/200/300?random=6",
+        nome: "Produto 6",
         preco: 350,
         quantidade: 1,
       },
       {
-        id: 3,
-        imagem: "https://picsum.photos/200/300?random=3",
-        nome: "Zroduto",
-        preco: 50,
+        imagem: "https://picsum.photos/200/300?random=7",
+        nome: "Produto 7",
+        preco: 400,
         quantidade: 1,
       },
       {
-        id: 4,
-        imagem: "https://picsum.photos/200/300?random=4",
-        nome: "Produto",
+        imagem: "https://picsum.photos/200/300?random=8",
+        nome: "Produto 8",
+        preco: 450,
+        quantidade: 1,
+      },
+      {
+        imagem: "https://picsum.photos/200/300?random=9",
+        nome: "Produto 9",
         preco: 500,
         quantidade: 1,
       },
     ],
     carrinho: [],
+    arrCarrinhoOpcao: [],
     inputValorMin: "",
     inputValorMax: "",
     inputBuscar: "",
     precoTotal: 0,
     filtro: "crescente",
+    opcoesCarrinho: false,
   };
 
   limparFiltro = () => {
@@ -56,9 +79,26 @@ class App extends React.Component {
     this.setState({ inputBuscar: "" });
   };
 
+  telaProduto = (produto) => {
+    const novoItem = {
+      imagem: produto.imagem,
+      nome: produto.nome,
+      preco: produto.preco,
+      quantidade: 1,
+    };
+
+    let descricaoCarrinho = [novoItem];
+
+    this.setState({ arrCarrinhoOpcao: descricaoCarrinho });
+    this.setState({ opcoesCarrinho: !this.state.opcoesCarrinho });
+  };
+
+  fecharTelaProduto = () => {
+    this.setState({ opcoesCarrinho: !this.state.opcoesCarrinho });
+  }
+
   adicionarItemCarrinho = (produto) => {
     const novoItem = {
-      id: produto.id,
       nome: produto.nome,
       preco: produto.preco,
       quantidade: 1,
@@ -73,14 +113,14 @@ class App extends React.Component {
     }, Object.create(null));
 
     this.setState({ carrinho: novaListaCarrinho });
+    this.setState({ opcoesCarrinho: !this.state.opcoesCarrinho });
   };
 
   adicionarQuantidade = (index) => {
-    const novoItem = [...this.state.carrinho];
-    if (novoItem[index].quantidade >= 0) {
-      novoItem[index].quantidade++;
-    }
-    this.setState({ carrinho: novoItem });
+    const novoArrayCarrinho = [...this.state.carrinho];
+    novoArrayCarrinho[index].quantidade++;
+
+    this.setState({ carrinho: novoArrayCarrinho });
   };
 
   removerQuantidade = (index) => {
@@ -91,9 +131,9 @@ class App extends React.Component {
     this.setState({ carrinho: novoItem });
   };
 
-  removeProduto = (id) => {
-    const produtoRemovido = this.state.carrinho.filter((produto) => {
-      return id !== produto.id;
+  removeProduto = (indexClicado) => {
+    const produtoRemovido = this.state.carrinho.filter((produto, index) => {
+      return indexClicado !== index;
     });
     this.setState({ carrinho: produtoRemovido });
   };
@@ -131,8 +171,15 @@ class App extends React.Component {
             onChangeInputBuscar={this.onChangeInputBuscar}
             limparFiltro={this.limparFiltro}
           />
+          <OpcoesProduto
+            fecharTelaProduto={this.fecharTelaProduto}
+            opcoesCarrinho={this.state.opcoesCarrinho}
+            arrCarrinho={this.state.arrCarrinhoOpcao}
+            adicionarItemCarrinho={this.adicionarItemCarrinho}
+          />
           <Produtos>
             <Produto
+              telaProduto={this.telaProduto}
               filtro={this.state.filtro}
               onChangeFilter={this.onChangeFilter}
               adicionarItemCarrinho={this.adicionarItemCarrinho}

@@ -28,18 +28,14 @@ class Carrinho extends React.Component {
     const carrinhos = this.props.carrinho.map((produto, index) => {
       return (
         <div key={index}>
-          <ContainerTexto>
-            <p>{produto.quantidade}x</p>
-            <p>{produto.nome}</p>
-            <Botao onClick={() => this.props.removerQuantidade(index)}>-</Botao>
-            <Botao onClick={() => this.props.adicionarQuantidade(index)}>
-              +
-            </Botao>
-            <Botao onClick={() => this.props.removeProduto(produto.id)}>
-              x
-            </Botao>
-          </ContainerTexto>
-          <br />
+            <ContainerTexto>
+              <p>{produto.quantidade}x</p>
+              <p>{produto.nome}</p>
+              <Botao onClick={() => this.props.removerQuantidade(index)}>-</Botao>
+              <Botao onClick={() => this.props.adicionarQuantidade(index)}>+</Botao>
+              <Botao onClick={() => this.props.removeProduto(index)}>X</Botao>
+            </ContainerTexto>
+          <br />  
         </div>
       );
     });
