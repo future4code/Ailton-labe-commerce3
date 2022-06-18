@@ -23,16 +23,17 @@ const Img = styled.img`
 const ContainerTexto = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 16px;
-  height: 125px;
-  width: 200px;
-  gap: 8px;
+  padding: 6px;
+  height: 27%;
+  width: 100%;
+  gap: 4px;
+  align-items: baseline;
 `;
 
 const ContainerCard = styled.div`
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: start;
   padding: 0 20px;
 `;
 
@@ -50,6 +51,25 @@ const MainContainer = styled.div`
 
 const QuantidadeProduto = styled.div`
   margin-left: 35px;
+`
+
+const Botao = styled.button`
+  padding: 8px 0px;
+  border-radius: 7px;
+  background-color: blueviolet;
+  color: #fff;
+  border: none;
+  width: 70%;
+`;
+
+const ContainerBotao = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: center;
+`
+
+const Titulo = styled.div`
+  height: 80%;
 `
 
 class Produto extends React.Component {
@@ -85,10 +105,16 @@ class Produto extends React.Component {
           <Card key={index}>
             <Img src={produto.imagensExtra[0]} onClick={() => this.props.telaProduto(produto)}/>
             <ContainerTexto>
-              <p>{produto.nome}</p>
-              <p>R$:{produto.preco}</p>
-              <Botao onClick={() => this.props.telaProduto(produto)}>Escolher produto</Botao>
+              <Titulo>
+                <p>{produto.nome}</p>
+              </Titulo>
+              <div>
+                <p>R$:{produto.preco}</p>
+              </div>
             </ContainerTexto>
+            <ContainerBotao>
+              <Botao onClick={() => this.props.telaProduto(produto)}>Escolher produto</Botao>
+            </ContainerBotao>
           </Card>
         );
       });

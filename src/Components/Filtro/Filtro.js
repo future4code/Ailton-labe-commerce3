@@ -15,6 +15,9 @@ const ContainerFiltros = styled.div`
 
 const Titulo = styled.h3`
   margin-left: 25px;
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 const Input = styled.input`
@@ -35,6 +38,9 @@ const Botao = styled.button`
 
 const Img = styled.img`
   width: 25px;
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 const ContainerTituloInputs = styled.div`
@@ -49,7 +55,7 @@ class Filtro extends React.Component {
     return (
       <ContainerFiltros>
         <div>
-          <Titulo>Faça sua Busca</Titulo>
+          <Titulo onClick={() => this.props.renderizarInputsBuscar()}>Faça sua Busca</Titulo>
         </div>
         {this.props.buscar ? (
           <ContainerTituloInputs>

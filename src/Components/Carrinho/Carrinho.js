@@ -9,6 +9,7 @@ const ContainerTexto = styled.div`
   justify-content: space-between;
   align-items: center;
   gap: 15px;
+  text-overflow: ellipsis;
 `;
 
 const Botao = styled.button`
@@ -28,8 +29,9 @@ const ContainerCarrinhos = styled.div`
   height: 70vh;
   /* position: fixed; */
   right: 0;
-  
-const NomeContainer = styled.div `
+` 
+
+const NomeContainer = styled.div`
   display: flex;
 `
 const IconeCarrinho = styled.img `
@@ -40,6 +42,14 @@ const NomeProduto = styled.p `
   font-weight: bold;
 `
 
+const Nome = styled.div`
+  max-height: 40px;
+  width: 80px;
+  overflow: hidden;
+  text-overflow: clip;
+  font-weight: bold;
+`
+
 class Carrinho extends React.Component {
   render() {
     const carrinhos = this.props.carrinho.map((produto, index) => {
@@ -47,7 +57,7 @@ class Carrinho extends React.Component {
         <div key={index}>
             <ContainerTexto>
               <NomeProduto>{produto.quantidade}x</NomeProduto>
-              <NomeProduto>{produto.nome}</NomeProduto>
+              <Nome>{produto.nome}</Nome>
               <Botao onClick={() => this.props.removerQuantidade(index)}>-</Botao>
               <Botao onClick={() => this.props.adicionarQuantidade(index)}>+</Botao>
               <Botao onClick={() => this.props.removeProduto(index)}>x</Botao>
