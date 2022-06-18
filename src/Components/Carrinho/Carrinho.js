@@ -34,7 +34,7 @@ class Carrinho extends React.Component {
               <p>{produto.nome}</p>
               <Botao onClick={() => this.props.adicionarQuantidade(index)}>+</Botao>
               <Botao onClick={() => this.props.removerQuantidade(index)}>-</Botao>
-              <Botao onClick={() => this.props.removeProduto(produto.id)}>X</Botao>
+              <Botao onClick={() => this.props.removeProduto(index)}>X</Botao>
             </ContainerTexto>
           <br />  
         </div>
