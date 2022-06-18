@@ -80,9 +80,6 @@ class Produto extends React.Component {
               <p>{produto.nome}</p>
               <p>R$:{produto.preco}</p>
               <button onClick={() => this.props.telaProduto(produto)}>Escolher produto</button>
-              {/* <button onClick={() => this.props.adicionarItemCarrinho(produto)}>
-                Adicionar ao carrinho
-              </button> */}
             </ContainerTexto>
           </Card>
         );
