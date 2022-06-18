@@ -22,10 +22,13 @@ const Botao = styled.button`
 const ContainerCarrinhos = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
-  width: 20%;
-  height: 80vh;
-`;
+  margin-top: 50px;
+  border: 1px solid black;
+  width: 18%;
+  height: 70vh;
+  /* position: fixed; */
+  right: 0;
+  
 const NomeContainer = styled.div `
   display: flex;
 `

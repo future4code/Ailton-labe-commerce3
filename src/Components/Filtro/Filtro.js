@@ -1,62 +1,82 @@
 import React from "react";
 import styled from "styled-components";
+import lupa from "../../img/lupa.png";
+import iconefechar from "../../img/iconefechar.png";
 
 const ContainerFiltros = styled.div`
   display: flex;
-  flex-direction: column;
-  width: 15%;
-  height: 80vh;
-  padding: 25px 10px;
-  gap: 15px;
+  width: 100%;
+  padding: 15px 5px;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 20px;
+  height: 70px;
 `;
 
 const Titulo = styled.h3`
-  margin-bottom: 10px;
+  margin-left: 25px;
 `;
 
 const Input = styled.input`
-  width: 100%;
+  width: 18%;
   padding: 6px 6px;
   border-radius: 8px;
 `;
-const Botao = styled.button `
+
+const Botao = styled.button`
   padding: 8px 0px;
   border-radius: 7px;
   background-color: blueviolet;
   color: #fff;
   border: none;
-  `
+  width: 120px;
+  height: 30px;
+`;
+
+const Img = styled.img`
+  width: 25px;
+`;
+
+const ContainerTituloInputs = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 25px;
+`
 
 class Filtro extends React.Component {
+
   render() {
     return (
       <ContainerFiltros>
-        <Titulo>Faça sua Busca</Titulo>
-        <label>
-          Por Valor mínimo:
-          <Input
-            type="number"
-            value={this.props.inputValorMin}
-            onChange={this.props.onChangeInputValorMin}
-          />
-        </label>
-        <label>
-          Por Valor máximo:
-          <Input
-            type="number"
-            value={this.props.inputValorMax}
-            onChange={this.props.onChangeInputValorMax}
-          />
-        </label>
-        <label>
-          Por Nome:
-          <Input
-            type="text"
-            value={this.props.inputBuscar}
-            onChange={this.props.onChangeInputBuscar}
-          />
-        </label>
-        <Botao onClick={this.props.limparFiltro}>Limpar filtros</Botao>
+        <div>
+          <Titulo>Faça sua Busca</Titulo>
+        </div>
+        {this.props.buscar ? (
+          <ContainerTituloInputs>
+            <Img src={iconefechar} onClick={() => this.props.renderizarInputsBuscar()}/>
+            <Input
+              type="text"
+              value={this.props.inputBuscar}
+              onChange={this.props.onChangeInputBuscar}
+              placeholder="Nome do produto"
+            />
+            <Input
+              type="number"
+              value={this.props.inputValorMin}
+              onChange={this.props.onChangeInputValorMin}
+              placeholder="Valor mínimo"
+            />
+            <Input
+              type="number"
+              value={this.props.inputValorMax}
+              onChange={this.props.onChangeInputValorMax}
+              placeholder="Valor máximo"
+            />
+            <Botao onClick={this.props.limparFiltro}>Limpar filtros</Botao>
+          </ContainerTituloInputs>
+        ) : 
+          <Img src={lupa} onClick={() => this.props.renderizarInputsBuscar()} />
+        }
       </ContainerFiltros>
     );
   }

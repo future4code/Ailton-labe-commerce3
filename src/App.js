@@ -5,10 +5,17 @@ import Produto from "./Components/Produto/Produto";
 import Filtro from "./Components/Filtro/Filtro";
 import Carrinho from "./Components/Carrinho/Carrinho";
 import OpcoesProduto from "./Components/OpcoesProduto/OpcoesProduto";
+import produto1 from './img/produto1/produto1.png';
+import produto12 from './img/produto1/produto13.png';
+import produto13 from './img/produto1/produto12.png';
+import produto2 from './img/produto2/produto2.jpg';
+import produto22 from './img/produto2/produto22.jpg';
+
 
 const Produtos = styled.div`
   display: flex;
-  width: 60%;
+  flex-direction: column;
+  width: 80%;
 `;
 const CardInicio = styled.img `
   max-width: 100%;
@@ -19,52 +26,16 @@ class App extends React.Component {
   state = {
     produto: [
       {
-        imagem: "https://picsum.photos/200/300?random=2",
-        nome: "Produto 2",
+        nome: "Camiseta masculina astronauta preta",
         preco: 150,
         quantidade: 1,
+        imagensExtra: [produto1, produto12, produto13]
       },
       {
-        imagem: "https://picsum.photos/200/300?random=3",
         nome: "Produto 3",
         preco: 200,
         quantidade: 1,
-      },
-      {
-        imagem: "https://picsum.photos/200/300?random=4",
-        nome: "Produto 4",
-        preco: 250,
-        quantidade: 1,
-      },
-      {
-        imagem: "https://picsum.photos/200/300?random=5",
-        nome: "Produto 5",
-        preco: 300,
-        quantidade: 1,
-      },
-      {
-        imagem: "https://picsum.photos/200/300?random=6",
-        nome: "Produto 6",
-        preco: 350,
-        quantidade: 1,
-      },
-      {
-        imagem: "https://picsum.photos/200/300?random=7",
-        nome: "Produto 7",
-        preco: 400,
-        quantidade: 1,
-      },
-      {
-        imagem: "https://picsum.photos/200/300?random=8",
-        nome: "Produto 8",
-        preco: 450,
-        quantidade: 1,
-      },
-      {
-        imagem: "https://picsum.photos/200/300?random=9",
-        nome: "Produto 9",
-        preco: 500,
-        quantidade: 1,
+        imagensExtra: [produto2, produto22]
       },
     ],
     carrinho: [],
@@ -75,6 +46,7 @@ class App extends React.Component {
     precoTotal: 0,
     filtro: "crescente",
     opcoesCarrinho: false,
+    buscar: true,
   };
 
   limparFiltro = () => {
@@ -83,12 +55,26 @@ class App extends React.Component {
     this.setState({ inputBuscar: "" });
   };
 
-  telaProduto = (produto) => {
+  trocarImagem = (produto, index) => {
     const novoItem = {
-      imagem: produto.imagem,
+      imagem: produto.imagensExtra[index],
       nome: produto.nome,
       preco: produto.preco,
       quantidade: 1,
+      imagensExtra: [produto.imagensExtra[0], produto.imagensExtra[1], produto.imagensExtra[2]],
+    };
+
+    let descricaoCarrinho = [novoItem];
+    this.setState({ arrCarrinhoOpcao: descricaoCarrinho });
+  }
+
+  telaProduto = (produto) => {
+    const novoItem = {
+      imagem: produto.imagensExtra[0],
+      nome: produto.nome,
+      preco: produto.preco,
+      quantidade: 1,
+      imagensExtra: [produto.imagensExtra[0], produto.imagensExtra[1], produto.imagensExtra[2]],
     };
 
     let descricaoCarrinho = [novoItem];
@@ -96,6 +82,10 @@ class App extends React.Component {
     this.setState({ arrCarrinhoOpcao: descricaoCarrinho });
     this.setState({ opcoesCarrinho: !this.state.opcoesCarrinho });
   };
+  
+  renderizarInputsBuscar = () => {
+    this.setState({ buscar: !this.state.buscar})
+  }
 
   fecharTelaProduto = () => {
     this.setState({ opcoesCarrinho: !this.state.opcoesCarrinho });
@@ -123,7 +113,6 @@ class App extends React.Component {
   adicionarQuantidade = (index) => {
     const novoArrayCarrinho = [...this.state.carrinho];
     novoArrayCarrinho[index].quantidade++;
-
     this.setState({ carrinho: novoArrayCarrinho });
   };
 
@@ -169,22 +158,26 @@ class App extends React.Component {
           <CardInicio src="" />
         </main> */}
         <section className="main-container">
-          <Filtro
-            inputValorMin={this.state.inputValorMin}
-            onChangeInputValorMin={this.onChangeInputValorMin}
-            inputValorMax={this.state.inputValorMax}
-            onChangeInputValorMax={this.onChangeInputValorMax}
-            inputBuscar={this.state.inputBuscar}
-            onChangeInputBuscar={this.onChangeInputBuscar}
-            limparFiltro={this.limparFiltro}
-          />
           <OpcoesProduto
+            trocarImagem={this.trocarImagem}
+            produto={this.state.produto}
             fecharTelaProduto={this.fecharTelaProduto}
             opcoesCarrinho={this.state.opcoesCarrinho}
-            arrCarrinho={this.state.arrCarrinhoOpcao}
+            arrCarrinhoOpcao={this.state.arrCarrinhoOpcao}
             adicionarItemCarrinho={this.adicionarItemCarrinho}
           />
           <Produtos>
+            <Filtro
+              renderizarInputsBuscar={this.renderizarInputsBuscar}
+              buscar={this.state.buscar}
+              inputValorMin={this.state.inputValorMin}
+              onChangeInputValorMin={this.onChangeInputValorMin}
+              inputValorMax={this.state.inputValorMax}
+              onChangeInputValorMax={this.onChangeInputValorMax}
+              inputBuscar={this.state.inputBuscar}
+              onChangeInputBuscar={this.onChangeInputBuscar}
+              limparFiltro={this.limparFiltro}
+            />
             <Produto
               telaProduto={this.telaProduto}
               filtro={this.state.filtro}

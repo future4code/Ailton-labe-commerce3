@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import iconefechar from '../../img/iconefechar.png'
+import iconefechar from "../../img/iconefechar.png";
 
 const ContainerOpcoes = styled.div`
   background: rgba( 111, 122, 199, 0.35 );
@@ -18,8 +18,15 @@ const ContainerOpcoes = styled.div`
 `;
 
 const Img = styled.img`
-  width: 300px;
-`;
+  display: flex;
+  width: 350px;
+
+const ImgMenor = styled.img`
+  width: 70px;
+  &:hover {
+    cursor: pointer;
+  }
+`
 
 const IconeFechar = styled.img`
   width: 25px;
@@ -41,11 +48,34 @@ const Informacao = styled.div `
 const ContainerNome = styled.div`
   display: flex;
   justify-content: space-between;
+`;
+
+const ContainerImagemMenor = styled.div`
+  display: flex;
+  justify-content: start;
+  margin: 5px 5px 5px 40px;
+  gap: 10px;
 `
 
 class OpcoesProduto extends React.Component {
+
   render() {
-    const arrayOpcoesProdutos = this.props.arrCarrinho
+
+    const arrImagensExtras = this.props.arrCarrinhoOpcao
+    .filter((produto) => {
+      return this.props.opcoesCarrinho;
+    })
+    .map((produto, index) => {
+      return (
+        <ContainerImagemMenor>
+          <ImgMenor src={produto.imagensExtra[0]} onClick={() => this.props.trocarImagem(produto, index)}/>
+          <ImgMenor src={produto.imagensExtra[1]} onClick={() => this.props.trocarImagem(produto, index+1)}/>
+          {produto.imagensExtra[2] && <ImgMenor src={produto.imagensExtra[2]} onClick={() => this.props.trocarImagem(produto, index+2)}/>}
+        </ContainerImagemMenor>
+      )
+    })
+
+    const arrayOpcoesProdutos = this.props.arrCarrinhoOpcao
       .filter((produto) => {
         return this.props.opcoesCarrinho;
       })
@@ -54,6 +84,7 @@ class OpcoesProduto extends React.Component {
           <ContainerOpcoes key={index}>
             <Container>
               <Img src={produto.imagem} />
+              {arrImagensExtras}
             </Container>
             <Informacao>
               <div>
@@ -61,6 +92,12 @@ class OpcoesProduto extends React.Component {
               </div>
               <ContainerNome>
                 <p>{produto.nome}</p>
+
+                <IconeFechar
+                  src={iconefechar}
+                  onClick={() => this.props.fecharTelaProduto(produto)}
+                />
+
               </ContainerNome>
               <p>R$:{produto.preco}</p>
               <button onClick={() => this.props.adicionarItemCarrinho(produto)}>
@@ -71,7 +108,9 @@ class OpcoesProduto extends React.Component {
         );
       });
 
-    return <div>{arrayOpcoesProdutos}</div>;
+    return <div>
+      {arrayOpcoesProdutos}
+      </div>;
   }
 }
 
