@@ -8,19 +8,12 @@ import OpcoesProduto from "./Components/OpcoesProduto/OpcoesProduto";
 
 const Produtos = styled.div`
   display: flex;
-  border: 1px solid black;
   width: 60%;
 `;
 
 class App extends React.Component {
   state = {
     produto: [
-      {
-        imagem: "https://picsum.photos/200/300?random=1",
-        nome: "Produto 1",
-        preco: 100,
-        quantidade: 1,
-      },
       {
         imagem: "https://picsum.photos/200/300?random=2",
         nome: "Produto 2",
@@ -164,7 +157,10 @@ class App extends React.Component {
   render() {
     return (
       <div className="container">
-        <header>header</header>
+        <header>
+          <h2>Mundo do <span>Astronauta</span></h2>
+          <button>Minha Conta</button>
+        </header>
         <section className="main-container">
           <Filtro
             inputValorMin={this.state.inputValorMin}

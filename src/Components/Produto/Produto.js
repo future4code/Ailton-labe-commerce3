@@ -4,7 +4,8 @@ import styled from "styled-components";
 const Card = styled.div`
   height: 320px;
   width: 202px;
-  border: 1px solid black;
+  border: 2px solid blueviolet;
+  border-radius: 6px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -28,6 +29,15 @@ const ContainerTexto = styled.div`
   gap: 8px;
 `;
 
+const Botao = styled.button `
+  padding: 7px 6px;
+  background-color: blueviolet;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+`
+
 const ContainerCard = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -45,7 +55,6 @@ const MainContainer = styled.div`
 
 class Produto extends React.Component {
   render() {
-
     const produtosFiltrados = this.props.produto
       .filter((produto) => {
         return produto.nome
