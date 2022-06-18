@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import iconeCar from '../../img/icon-car.png';
 
 const ContainerTexto = styled.div`
   display: flex;
@@ -7,12 +8,15 @@ const ContainerTexto = styled.div`
   width: 100%;
   justify-content: space-between;
   align-items: center;
-  padding-left: 5px;
+  gap: 15px;
 `;
 
 const Botao = styled.button`
-  height: 20px;
-  width: 15%;
+  padding: 3px 10px;
+  background-color: blueviolet;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
 `;
 
 const ContainerCarrinhos = styled.div`
@@ -24,7 +28,17 @@ const ContainerCarrinhos = styled.div`
   height: 70vh;
   /* position: fixed; */
   right: 0;
-`;
+  
+const NomeContainer = styled.div `
+  display: flex;
+`
+const IconeCarrinho = styled.img `
+  width: 25px;
+  margin-right: 6px;
+`
+const NomeProduto = styled.p `
+  font-weight: bold;
+`
 
 class Carrinho extends React.Component {
   render() {
@@ -32,11 +46,11 @@ class Carrinho extends React.Component {
       return (
         <div key={index}>
             <ContainerTexto>
-              <p>{produto.quantidade}x</p>
-              <p>{produto.nome}</p>
+              <NomeProduto>{produto.quantidade}x</NomeProduto>
+              <NomeProduto>{produto.nome}</NomeProduto>
               <Botao onClick={() => this.props.removerQuantidade(index)}>-</Botao>
               <Botao onClick={() => this.props.adicionarQuantidade(index)}>+</Botao>
-              <Botao onClick={() => this.props.removeProduto(index)}>X</Botao>
+              <Botao onClick={() => this.props.removeProduto(index)}>x</Botao>
             </ContainerTexto>
           <br />  
         </div>
@@ -49,9 +63,12 @@ class Carrinho extends React.Component {
 
     return (
       <ContainerCarrinhos>
-        <h3>Carrinho</h3>
+        <NomeContainer>
+        <IconeCarrinho src={iconeCar}/>
+        <h2>Seus Produtos</h2>
+        </NomeContainer>
         <div>{carrinhos}</div>
-        <p>Valor Total: R$ {somaPrecos}</p>
+        <NomeProduto>Valor Total: R$ {somaPrecos}</NomeProduto>
       </ContainerCarrinhos>
     );
   }

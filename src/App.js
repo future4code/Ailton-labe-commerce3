@@ -17,6 +17,10 @@ const Produtos = styled.div`
   flex-direction: column;
   width: 80%;
 `;
+const CardInicio = styled.img `
+  max-width: 100%;
+  height: 500px;
+`
 
 class App extends React.Component {
   state = {
@@ -150,6 +154,9 @@ class App extends React.Component {
           <h2>Mundo do <span>Astronauta</span></h2>
           <button>Minha Conta</button>
         </header>
+        {/* <main>
+          <CardInicio src="" />
+        </main> */}
         <section className="main-container">
           <OpcoesProduto
             trocarImagem={this.trocarImagem}

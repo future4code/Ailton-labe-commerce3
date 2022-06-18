@@ -38,6 +38,11 @@ header button {
   font-weight: bold;
 }
 
+main {
+  text-align: center;
+  background-color: #000;
+}
+
 
 footer {
   bottom: 0;
