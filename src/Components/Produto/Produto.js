@@ -13,8 +13,8 @@ const Card = styled.div`
 `;
 
 const Img = styled.img`
-  width: 200px;
-  height: 200px;
+  width: 198px;
+  height: 198px;
   &:hover{
     cursor:pointer;
   }
@@ -29,18 +29,11 @@ const ContainerTexto = styled.div`
   gap: 8px;
 `;
 
-const Botao = styled.button `
-  padding: 7px 6px;
-  background-color: blueviolet;
-  color: #fff;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-`
-
 const ContainerCard = styled.div`
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 0 20px;
 `;
 
 const HeaderCards = styled.div`
@@ -51,7 +44,13 @@ const HeaderCards = styled.div`
 
 const MainContainer = styled.div`
   width: 100%;
+  display: flex;
+  flex-direction: column;
 `;
+
+const QuantidadeProduto = styled.div`
+  margin-left: 35px;
+`
 
 class Produto extends React.Component {
   render() {
@@ -84,7 +83,7 @@ class Produto extends React.Component {
       .map((produto, index) => {
         return (
           <Card key={index}>
-            <Img src={produto.imagem} onClick={() => this.props.telaProduto(produto)}/>
+            <Img src={produto.imagensExtra[0]} onClick={() => this.props.telaProduto(produto)}/>
             <ContainerTexto>
               <p>{produto.nome}</p>
               <p>R$:{produto.preco}</p>
@@ -97,9 +96,9 @@ class Produto extends React.Component {
     return (
       <MainContainer>
         <HeaderCards>
-          <div>
-            <p>Quantidade de produtos: {this.props.produto.length}</p>
-          </div>
+          <QuantidadeProduto>
+            <p>Quantidade de produtos: {produtosFiltrados.length}</p>
+          </QuantidadeProduto>
           <div>
             <label for="filtro">Ordenar por: </label>
             <select
