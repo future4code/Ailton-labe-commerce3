@@ -19,7 +19,8 @@ const ContainerOpcoes = styled.div`
 
 const Img = styled.img`
   display: flex;
-  width: 350px;
+  width: 65%;
+`
 
 const ImgMenor = styled.img`
   width: 70px;
@@ -53,8 +54,9 @@ const ContainerNome = styled.div`
 const ContainerImagemMenor = styled.div`
   display: flex;
   justify-content: start;
-  margin: 5px 5px 5px 40px;
-  gap: 10px;
+  width: 65%;
+  margin-top: 8px;
+  gap: 16px;
 `
 
 class OpcoesProduto extends React.Component {

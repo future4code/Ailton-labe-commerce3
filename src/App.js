@@ -17,6 +17,7 @@ const Produtos = styled.div`
   flex-direction: column;
   width: 80%;
 `;
+
 const CardInicio = styled.img `
   max-width: 100%;
   height: 500px;
