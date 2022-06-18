@@ -10,6 +10,10 @@ const Produtos = styled.div`
   display: flex;
   width: 60%;
 `;
+const CardInicio = styled.img `
+  max-width: 100%;
+  height: 500px;
+`
 
 class App extends React.Component {
   state = {
@@ -161,6 +165,9 @@ class App extends React.Component {
           <h2>Mundo do <span>Astronauta</span></h2>
           <button>Minha Conta</button>
         </header>
+        {/* <main>
+          <CardInicio src="" />
+        </main> */}
         <section className="main-container">
           <Filtro
             inputValorMin={this.state.inputValorMin}

@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const Card = styled.div`
   height: 320px;
-  width: 202px;
+  width: 204px;
   border: 2px solid blueviolet;
   border-radius: 6px;
   display: flex;
@@ -88,7 +88,7 @@ class Produto extends React.Component {
             <ContainerTexto>
               <p>{produto.nome}</p>
               <p>R$:{produto.preco}</p>
-              <button onClick={() => this.props.telaProduto(produto)}>Escolher produto</button>
+              <Botao onClick={() => this.props.telaProduto(produto)}>Escolher produto</Botao>
             </ContainerTexto>
           </Card>
         );
