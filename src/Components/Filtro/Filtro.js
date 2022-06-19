@@ -22,8 +22,10 @@ const Titulo = styled.h3`
 
 const Input = styled.input`
   width: 18%;
-  padding: 6px 6px;
-  border-radius: 8px;
+  padding: 3px 3px;
+  border-radius: 4px;
+  border-style: none;
+
 `;
 
 const Botao = styled.button`
@@ -43,10 +45,13 @@ const Img = styled.img`
   }
 `;
 
-const ContainerTituloInputs = styled.div`
+const ContainerInputs = styled.div`
   display: flex;
   align-items: center;
   gap: 25px;
+`
+
+const ContainerTitulo = styled.div`
 `
 
 class Filtro extends React.Component {
@@ -54,11 +59,11 @@ class Filtro extends React.Component {
   render() {
     return (
       <ContainerFiltros>
-        <div>
+        <ContainerTitulo>
           <Titulo onClick={() => this.props.renderizarInputsBuscar()}>Faça sua Busca</Titulo>
-        </div>
+        </ContainerTitulo>  
         {this.props.buscar ? (
-          <ContainerTituloInputs>
+          <ContainerInputs>
             <Img src={iconefechar} onClick={() => this.props.renderizarInputsBuscar()}/>
             <Input
               type="text"
@@ -79,7 +84,7 @@ class Filtro extends React.Component {
               placeholder="Valor máximo"
             />
             <Botao onClick={this.props.limparFiltro}>Limpar filtros</Botao>
-          </ContainerTituloInputs>
+          </ContainerInputs>
         ) : 
           <Img src={lupa} onClick={() => this.props.renderizarInputsBuscar()} />
         }

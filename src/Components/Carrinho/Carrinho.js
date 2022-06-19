@@ -1,6 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import iconeCar from '../../img/icon-car.png';
+import iconeCar from "../../img/icon-car.png";
+import maiorque from "../../img/maiorque.png";
+import menorque from "../../img/menorque.png";
+import excluir from "../../img/excluir.png";
 
 const ContainerTexto = styled.div`
   display: flex;
@@ -8,39 +11,38 @@ const ContainerTexto = styled.div`
   width: 100%;
   justify-content: space-between;
   align-items: center;
-  gap: 15px;
+  /* gap: 15px; */
   text-overflow: ellipsis;
-`;
-
-const Botao = styled.button`
-  padding: 3px 10px;
-  background-color: blueviolet;
-  color: #fff;
-  border: none;
-  border-radius: 6px;
+  padding: 0 5px 0 15px;  
 `;
 
 const ContainerCarrinhos = styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: 50px;
-  border: 1px solid black;
+  margin: 7% 5% 0 0;
   width: 18%;
   height: 70vh;
-  /* position: fixed; */
+  padding-left: 10px;
+  background-color: rgb(94, 3, 94);
+  color: white;
+  box-shadow: 1px 2px 8px 1px rgb(0 0 0 / 80%);
+  border-radius: 4%;
+  position: absolute;
   right: 0;
-` 
+`;
 
 const NomeContainer = styled.div`
   display: flex;
-`
-const IconeCarrinho = styled.img `
+`;
+const IconeCarrinho = styled.img`
   width: 25px;
   margin-right: 6px;
-`
-const NomeProduto = styled.p `
+`;
+const ContainerValor = styled.p`
   font-weight: bold;
-`
+  display: flex;
+  justify-content: center;
+`;
 
 const Nome = styled.div`
   max-height: 40px;
@@ -48,6 +50,22 @@ const Nome = styled.div`
   overflow: hidden;
   text-overflow: clip;
   font-weight: bold;
+`;
+
+const Icone = styled.img`
+  width: 20px;
+`;
+
+const ContainerQuantidade = styled.div`
+  font-size: 15px;
+  font-weight: bold;
+`
+
+const Carrinhos = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 10px;
 `
 
 class Carrinho extends React.Component {
@@ -55,14 +73,25 @@ class Carrinho extends React.Component {
     const carrinhos = this.props.carrinho.map((produto, index) => {
       return (
         <div key={index}>
-            <ContainerTexto>
-              <NomeProduto>{produto.quantidade}x</NomeProduto>
-              <Nome>{produto.nome}</Nome>
-              <Botao onClick={() => this.props.removerQuantidade(index)}>-</Botao>
-              <Botao onClick={() => this.props.adicionarQuantidade(index)}>+</Botao>
-              <Botao onClick={() => this.props.removeProduto(index)}>x</Botao>
-            </ContainerTexto>
-          <br />  
+          <ContainerTexto>
+            <Nome>{produto.nome}</Nome>
+            <NomeContainer>
+              <Icone  
+                src={menorque}
+                onClick={() => this.props.removerQuantidade(index)}
+              />
+              <ContainerQuantidade>&nbsp;{produto.quantidade}&nbsp;</ContainerQuantidade>
+              <Icone
+                src={maiorque}
+                onClick={() => this.props.adicionarQuantidade(index)}
+              />
+            </NomeContainer>
+            <Icone
+              src={excluir}
+              onClick={() => this.props.removeProduto(index)}
+            />
+          </ContainerTexto>
+          <br />
         </div>
       );
     });
@@ -74,11 +103,13 @@ class Carrinho extends React.Component {
     return (
       <ContainerCarrinhos>
         <NomeContainer>
-        <IconeCarrinho src={iconeCar}/>
-        <h2>Seus Produtos</h2>
-        </NomeContainer>
-        <div>{carrinhos}</div>
-        <NomeProduto>Valor Total: R$ {somaPrecos}</NomeProduto>
+          <IconeCarrinho src={iconeCar} />
+          <h2>Seus Produtos</h2>
+        </NomeContainer >
+        <Carrinhos>
+          {carrinhos}
+        </Carrinhos>
+        <ContainerValor>Valor Total: R$ {somaPrecos}</ContainerValor>
       </ContainerCarrinhos>
     );
   }

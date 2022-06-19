@@ -19,7 +19,10 @@ const ContainerOpcoes = styled.div`
 
 const Img = styled.img`
   display: flex;
+  border: 1px solid black;
   width: 65%;
+  height: 74%;
+  box-shadow: 1px 2px 8px 1px rgb(0 0 0 / 30%);
 `
 
 const ImgMenor = styled.img`
@@ -40,6 +43,7 @@ const Container = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  border: 1px solid black;
 `;
 const Informacao = styled.div `
   display: flex;
