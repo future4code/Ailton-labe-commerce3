@@ -30,6 +30,4 @@ Parte inferior da página: Botões das redes sociais funcionam e abrem uma outra
 
 ### Prints da landing-page
 
-<img src="https://user-images.githubusercontent.com/100432523/174510439-7b0da043-b557-4a45-954b-55b5f57493ed.png" alt="Tela inicial" width="350px"/>
-
-<img src="https://user-images.githubusercontent.com/100432523/174510532-56df9acc-8189-47b7-9be1-b921e545d64c.png" alt="Tela inicial" width="350px"/>
+<img src="https://user-images.githubusercontent.com/100432523/174510439-7b0da043-b557-4a45-954b-55b5f57493ed.png" alt="Tela inicial" width="350px"/><img src="https://user-images.githubusercontent.com/100432523/174510532-56df9acc-8189-47b7-9be1-b921e545d64c.png" alt="Tela inicial" width="350px"/>
