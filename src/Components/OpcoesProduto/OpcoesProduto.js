@@ -25,14 +25,19 @@ const Container = styled.div`
 `;
 const Img = styled.img`
   display: flex;
+  border: 1px solid black;
   width: 65%;
-`;
+  height: 74%;
+  box-shadow: 1px 2px 8px 1px rgb(0 0 0 / 30%);
+`
+
 const ImgMenor = styled.img`
   width: 70px;
   &:hover {
     cursor: pointer;
   }
 `;
+
 const ContainerImagemMenor = styled.div`
   display: flex;
   justify-content: start;
@@ -57,6 +62,7 @@ const Informacao = styled.div`
   justify-content: center;
   flex: 1;
 `;
+
 const BotaoAdicionar = styled.button`
   padding: 7px;
   background-color: blueviolet;

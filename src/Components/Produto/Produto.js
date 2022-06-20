@@ -4,20 +4,26 @@ import styled from "styled-components";
 const Card = styled.div`
   height: 320px;
   width: 204px;
-  border: 2px solid blueviolet;
-  border-radius: 6px;
+  border-radius: 12px;
+  border: 2px solid black;
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 10px 10px;
+  box-shadow: 1px 2px 8px 1px rgb(0 0 0 / 80%);
+  &:hover{
+    cursor:pointer;
+    color: white;
+    font-weight: bold;
+    border: 2px solid blueviolet;
+    box-shadow: 1px 2px 8px 1px rgb(0 0 0 / 0%);
+  }
 `;
 
 const Img = styled.img`
-  width: 198px;
+  width: 100%;
   height: 198px;
-  &:hover{
-    cursor:pointer;
-  }
+  border-radius: 6%;
 `;
 
 const ContainerTexto = styled.div`
@@ -35,10 +41,12 @@ const ContainerCard = styled.div`
   flex-wrap: wrap;
   justify-content: start;
   padding: 0 20px;
+  color: white; 
 `;
 
 const HeaderCards = styled.div`
   display: flex;
+  color: white;
   width: 100%;
   justify-content: space-between;
 `;
@@ -50,7 +58,7 @@ const MainContainer = styled.div`
 `;
 
 const QuantidadeProduto = styled.div`
-  margin-left: 35px;
+  margin-left: 4%; 
 `
 
 const Botao = styled.button`
@@ -61,6 +69,10 @@ const Botao = styled.button`
   border: none;
   width: 70%;
 `;
+
+const Ordenacao = styled.div`
+  margin-right: 8%;
+`
 
 const ContainerBotao = styled.div`
   display: flex;
@@ -102,7 +114,7 @@ class Produto extends React.Component {
       })
       .map((produto, index) => {
         return (
-          <Card key={index}>
+          <Card key={index} onClick={() => this.props.telaProduto(produto)}>
             <Img src={produto.imagensExtra[0]} onClick={() => this.props.telaProduto(produto)}/>
             <ContainerTexto>
               <Titulo>
@@ -112,9 +124,9 @@ class Produto extends React.Component {
                 <p>R$:{produto.preco}</p>
               </div>
             </ContainerTexto>
-            <ContainerBotao>
+            {/* <ContainerBotao>
               <Botao onClick={() => this.props.telaProduto(produto)}>Escolher produto</Botao>
-            </ContainerBotao>
+            </ContainerBotao> */}
           </Card>
         );
       });
@@ -125,7 +137,7 @@ class Produto extends React.Component {
           <QuantidadeProduto>
             <p>Quantidade de produtos: {produtosFiltrados.length}</p>
           </QuantidadeProduto>
-          <div>
+          <Ordenacao>
             <label for="filtro">Ordenar por: </label>
             <select
               name="filtro"
@@ -135,7 +147,7 @@ class Produto extends React.Component {
               <option value="crescente">Preço: Menor ao maior</option>
               <option value="decrescente">Preço: Maior ao menor</option>
             </select>
-          </div>
+          </Ordenacao>
         </HeaderCards>
         <ContainerCard>{produtosFiltrados}</ContainerCard>
       </MainContainer>
