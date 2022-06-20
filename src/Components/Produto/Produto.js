@@ -58,7 +58,7 @@ const MainContainer = styled.div`
 `;
 
 const QuantidadeProduto = styled.div`
-  margin-left: 4%; 
+  margin-left: 4%;
 `
 
 const Botao = styled.button`
