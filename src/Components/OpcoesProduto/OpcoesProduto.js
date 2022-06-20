@@ -25,6 +25,7 @@ const Container = styled.div`
 `;
 const Img = styled.img`
   display: flex;
+  border-radius: 4px;
   width: 65%;
   height: 74%;
   box-shadow: 1px 2px 8px 1px rgb(0 0 0 / 30%);
