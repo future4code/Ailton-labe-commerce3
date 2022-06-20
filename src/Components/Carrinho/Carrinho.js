@@ -68,6 +68,16 @@ const Carrinhos = styled.div`
   justify-content: center;
   margin-top: 8px;
 `;
+const BotaoFinalizar = styled.button `
+  padding: 7px;
+  background-color: blueviolet;
+  color: #fff;
+  width: 100%;
+  border-radius: 8px;
+  margin-top: 16px;
+  border: none;
+  cursor: pointer;
+`
 
 class Carrinho extends React.Component {
   render() {
@@ -111,6 +121,7 @@ class Carrinho extends React.Component {
         </NomeContainer>
         <Carrinhos>{carrinhos}</Carrinhos>
         <ContainerValor>Valor Total: R$ {somaPrecos}</ContainerValor>
+        <BotaoFinalizar>Finalizar Compra</BotaoFinalizar>
       </ContainerCarrinhos>
     );
   }
