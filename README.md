@@ -6,18 +6,18 @@ link do surge: https://splendid-oil.surge.sh
 
 **Proposta:**  Montar um e-commerce de camisetas com estampas divertidas relacionadas ao espaço.
 
-### Site fictícia: Mundo do astronauta
+### Site fictício: Mundo do astronauta
 
 ### Sobre o projeto
 
-O projeto foi feito utilizando React. Por ter sido um projeto feito em grupo, utilizamos o git e github para realizar o gerenciamento dos arquivos do projeto através de branchs criadas por cada participante, dando merge na master quando conferida por mais um participante para que nada passasse desapercebido, garantindo que nenhum código fosse perdido no caminho.
+O projeto foi feito utilizando apenas React básico. Por ter sido um projeto feito em grupo, utilizamos o git e github para realizar o gerenciamento dos arquivos do projeto através de branchs criadas por cada participante, dando merge na master quando conferida por mais um participante para que nada passasse desapercebido, garantindo que nenhum código fosse perdido no caminho.
 
 ### Funcionalidades/não funcionalidades do projeto
 
 Barra de navegação superior: O botão no canto direito "Minha Conta" não tem funcionalidade.
 
-Seções da página: Ao clicar no produto (card das camisetas) abre uma noção seção contendo outras fotos do produto, escolher o tamanho e a opção de adicionar ao carrinho.
-Clicando em adicionar ao carrinho: o produto é exibido na parte direita da tela com opções para adicionar/remover o produto. O valor total da compra também é exibido, atualizado conforme aumentam ou diminuem os produtos.
+Seções da página: Ao clicar no produto (card das camisetas) uma seção é aberta contendo outras fotos do produto, podendo escolher o tamanho e ter a opção de adicionar ao carrinho.
+Clicando em adicionar ao carrinho: o produto é exibido na parte direita da tela com opções para adicionar mais/remover o produto. O valor total da compra também é exibido, atualizado conforme aumentam ou diminuem os produtos.
 Inputs que filtram os produtos pelo nome, valor mínimo e valor máximo.
 Botões para ordenar os produtos pelo preço, crescentemente ou decrescentemente.
 
