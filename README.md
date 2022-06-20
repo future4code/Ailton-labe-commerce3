@@ -1,6 +1,6 @@
 # Projeto E-commerce
 
-link do surge: https://private-lace.surge.sh
+link do surge: https://splendid-oil.surge.sh
 
 **Trabalharam neste projeto:** Daniel Andrade, Igor Castro e Joclelson Rodrigues.
 
