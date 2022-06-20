@@ -29,4 +29,4 @@ Parte inferior da página: Botões das redes sociais funcionam e abrem uma outra
 <img src="https://user-images.githubusercontent.com/100432523/174510439-7b0da043-b557-4a45-954b-55b5f57493ed.png" alt="Tela inicial" width="350px" height="200px"/>
 
 <p>Tela descrição dos produtos</p>
-<img src="https://user-images.githubusercontent.com/100432523/174510532-56df9acc-8189-47b7-9be1-b921e545d64c.png" alt="Tela inicial" width="350px" height="200px"/>
+<img src="https://user-images.githubusercontent.com/100432523/174513284-e53938f1-3af8-47d8-9efa-b4b9179f4078.png" alt="Tela inicial" width="350px" height="200px"/>
