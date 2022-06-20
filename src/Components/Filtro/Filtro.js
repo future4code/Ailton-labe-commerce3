@@ -18,6 +18,7 @@ const Titulo = styled.h3`
   &:hover {
     cursor: pointer;
   }
+  color: white;
 `;
 
 const Input = styled.input`

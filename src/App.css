@@ -61,7 +61,7 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgb(73, 1, 73);
+  background-color: rgb(49, 10, 49);
   flex-direction: column;
 }
 
@@ -82,5 +82,35 @@ footer > div {
   display: flex;
   gap: 20px;
   padding: 20px 0 20px 20px;
-  background-color: rgb(73, 1, 73);
+  background-color: rgb(49, 10, 49);
+}
+
+@media screen and (min-width: 300px) and (max-width: 750px) {
+
+  header {
+    height: 10vh;
+    background-color: #191919;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  header h2 {
+    color: #fff;
+    margin-left: 15px;
+  }
+
+  header button {
+    padding: 8px 18px;
+    background-color: blueviolet;
+    color: #fff;
+    margin-right: 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+
+  .icone-header {
+    width: 60px;
+    height: 60px;
+  }
 }
