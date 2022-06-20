@@ -16,7 +16,7 @@ O projeto foi feito utilizando apenas React básico. Por ter sido um projeto fei
 
 Barra de navegação superior: O botão no canto direito "Minha Conta" não tem funcionalidade.
 
-Seções da página: Ao clicar no produto (card das camisetas) uma seção é aberta contendo outras fotos do produto, podendo escolher o tamanho e ter a opção de adicionar ao carrinho.
+Seções da página: Ao clicar no produto (card das camisetas) uma seção é aberta contendo outras fotos do produto, onde é capaz de mostrar elas maiores ao clicar em cada uma delas, também é possível escolher o tamanho e adicionar ao carrinho.
 Clicando em adicionar ao carrinho: o produto é exibido na parte direita da tela com opções para adicionar mais/remover o produto. O valor total da compra também é exibido, atualizado conforme aumentam ou diminuem os produtos.
 Inputs que filtram os produtos pelo nome, valor mínimo e valor máximo.
 Botões para ordenar os produtos pelo preço, crescentemente ou decrescentemente.
