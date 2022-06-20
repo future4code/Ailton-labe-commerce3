@@ -29,6 +29,7 @@ const Img = styled.img`
   width: 65%;
   height: 74%;
   box-shadow: 1px 2px 8px 1px rgb(0 0 0 / 30%);
+  border-radius: 4%;
 `
 
 const ImgMenor = styled.img`
@@ -36,7 +37,7 @@ const ImgMenor = styled.img`
   &:hover {
     cursor: pointer;
   }
-  border-radius: 4px;
+  border-radius: 4%;
 `;
 
 const ContainerImagemMenor = styled.div`
@@ -59,7 +60,7 @@ const IconeFechar = styled.img`
 const Informacao = styled.div`
   display: flex;
   flex-direction: column;
-  text-align: center;
+  align-items: center;
   justify-content: center;
   flex: 1;
 `;
@@ -70,9 +71,16 @@ const BotaoAdicionar = styled.button`
   color: #fff;
   width: 40%;
   border-radius: 8px;
+  margin-top: 26px;
   border: none;
   cursor: pointer;
 `;
+const Tamanho = styled.div `
+  display: flex;
+  flex-direction: column;
+  margin: 16px;
+  gap: 10px;
+`
 
 
 class OpcoesProduto extends React.Component {
@@ -121,7 +129,12 @@ class OpcoesProduto extends React.Component {
             </Fechar>
             <Informacao>
               <h3>{produto.nome}</h3>
+              <Tamanho>
               <h4>Tamanhos:</h4>
+              <label><input type="radio" name="p"/>P</label>
+              <label><input type="radio" name="m"/>M</label>
+              <label><input type="radio" name="g"/>G</label>
+              </Tamanho>
               <p>R$:{produto.preco}</p>
               <BotaoAdicionar onClick={() => this.props.adicionarItemCarrinho(produto)}>
                 Adicionar ao carrinho

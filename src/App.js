@@ -59,12 +59,6 @@ class App extends React.Component {
       {nome: "Camisa meninos botões estampa galáxia",preco: " 50.00",quantidade: 1,imagensExtra: [produto3, produto31, produto32]},
       {nome: "Camisa feminina estampa astronauta preta",preco: " 50.00",quantidade: 1,imagensExtra: [produto4, produto41, produto42]},
       {nome: "Camiseta meninos estampa de astronauta refletiva",preco: " 50.00",quantidade: 1,imagensExtra: [produto5, produto51]},
-      {
-        nome: "Produto exemplo",
-        preco: 200,
-        quantidade: 1,
-        imagensExtra: []
-      }
 
     ],
     carrinho: [],

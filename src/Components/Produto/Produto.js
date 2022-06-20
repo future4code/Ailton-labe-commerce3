@@ -58,26 +58,10 @@ const MainContainer = styled.div`
 `;
 
 const QuantidadeProduto = styled.div`
-  margin-left: 4%; 
+  margin-left: 4%;
 `
-
-const Botao = styled.button`
-  padding: 8px 0px;
-  border-radius: 7px;
-  background-color: blueviolet;
-  color: #fff;
-  border: none;
-  width: 70%;
-`;
-
 const Ordenacao = styled.div`
   margin-right: 8%;
-`
-
-const ContainerBotao = styled.div`
-  display: flex;
-  width: 100%;
-  justify-content: center;
 `
 
 const Titulo = styled.div`

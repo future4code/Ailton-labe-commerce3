@@ -15,6 +15,7 @@ const ContainerFiltros = styled.div`
 
 const Titulo = styled.h3`
   margin-left: 25px;
+  color: white;
   &:hover {
     cursor: pointer;
   }

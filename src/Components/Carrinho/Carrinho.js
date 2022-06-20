@@ -23,7 +23,7 @@ const ContainerCarrinhos = styled.div`
   width: 18%;
   height: 100%;
   min-height: 70vh;
-  padding-left: 10px;
+  padding: 0 10px;
   /* background-color: black; */
   color: white;
   box-shadow: 1px 2px 8px 1px rgb(0 0 0 / 80%);
@@ -55,6 +55,9 @@ const Nome = styled.div`
 
 const Icone = styled.img`
   width: 20px;
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 const ContainerQuantidade = styled.div`
@@ -68,6 +71,16 @@ const Carrinhos = styled.div`
   justify-content: center;
   margin-top: 8px;
 `;
+const BotaoFinalizar = styled.button `
+  padding: 7px;
+  background-color: blueviolet;
+  color: #fff;
+  width: 100%;
+  border-radius: 8px;
+  margin-top: 16px;
+  border: none;
+  cursor: pointer;
+`
 
 class Carrinho extends React.Component {
   render() {
@@ -111,6 +124,7 @@ class Carrinho extends React.Component {
         </NomeContainer>
         <Carrinhos>{carrinhos}</Carrinhos>
         <ContainerValor>Valor Total: R$ {somaPrecos}</ContainerValor>
+        <BotaoFinalizar>Finalizar Compra</BotaoFinalizar>
       </ContainerCarrinhos>
     );
   }
