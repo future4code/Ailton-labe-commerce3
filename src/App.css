@@ -56,17 +56,24 @@ main {
 
 footer {
   bottom: 0;
-  height: 8vh;
+  height: 10vh;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px;
   background-color: rgb(73, 1, 73);
+  flex-direction: column;
 }
 
-footer > a > img {
+footer > div > a > img {
  width: 30px;
+}
+
+footer > div {
+  color: white;
+  display: flex;
+  gap: 8px;
+  margin-top: 4px;
 }
 
 .main-container {

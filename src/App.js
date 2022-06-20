@@ -51,7 +51,6 @@ class App extends React.Component {
       {nome: "Camiseta masculina astronauta preta",preco: 150,quantidade: 1,imagensExtra: [produto1, produto12, produto13]},
       {nome: "Moletom light Nasa retro branco",preco: 200,quantidade: 1,imagensExtra: [produto6, produto61]},
       {nome: "Camisa relax de viscose estampada nasa manga curta preta",preco: 200,quantidade: 1,imagensExtra: [produto7, produto71]},
-      {nome: "Camiseta masculina Raglan Nasa",preco: 200,quantidade: 1,imagensExtra: [produto8, produto81]},
       {nome: "Camiseta Nasa Logo - Plus size branca",preco: 200,quantidade: 1,imagensExtra: [produto9, produto91, produto92]},
       {nome: "Camiseta Nasa Vintage - Plus size verde musgo",preco: 200,quantidade: 1,imagensExtra: [produto10, produto101, produto102]},
       {nome: "Camiseta masculina Raglan Nasa",preco: 200,quantidade: 1,imagensExtra: [produto8, produto81]},
@@ -59,7 +58,6 @@ class App extends React.Component {
       {nome: "Camisa meninos estampa astronauta",preco: 200,quantidade: 1,imagensExtra: [produto2, produto21, produto22]},
       {nome: "Camisa meninos botões estampa galáxia",preco: 200,quantidade: 1,imagensExtra: [produto3, produto31, produto32]},
       {nome: "Camisa feminina estampa astronauta preta",preco: 200,quantidade: 1,imagensExtra: [produto4, produto41, produto42]},
-      {nome: "Camiseta meninos estampa de astronauta refletiva",preco: 200,quantidade: 1,imagensExtra: [produto5, produto51]},
       {nome: "Camiseta meninos estampa de astronauta refletiva",preco: 200,quantidade: 1,imagensExtra: [produto5, produto51]},
       {
         nome: "Produto exemplo",
@@ -198,9 +196,6 @@ class App extends React.Component {
           </div>
           <button>Minha Conta</button>
         </header>
-        {/* <main>
-          <CardInicio src="" />
-        </main> */}
         <section className="main-container">
           <OpcoesProduto
             trocarImagem={this.trocarImagem}
@@ -242,6 +237,10 @@ class App extends React.Component {
           />
         </section>
         <footer>
+          <div>
+              <p>Siga-nos nas redes sociais!</p>
+          </div>
+          <div>
           <a href="https://www.facebook.com" target="_blank">
             <img src={facebook} />
           </a>
@@ -251,6 +250,7 @@ class App extends React.Component {
           <a href="https://www.whatsapp.com" target="_blank">
             <img src={whatsapp} />
           </a>
+          </div>
         </footer>
       </div>
     );

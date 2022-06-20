@@ -7,13 +7,13 @@ import excluir from "../../img/excluir.png";
 
 const ContainerTexto = styled.div`
   display: flex;
-  height: 30px;
+  height: 45px;
   width: 100%;
   justify-content: space-between;
   align-items: center;
   /* gap: 15px; */
   text-overflow: ellipsis;
-  padding: 0 5px 0 15px;  
+  padding: 0 5px 0 15px;
 `;
 
 const ContainerCarrinhos = styled.div`
@@ -21,13 +21,13 @@ const ContainerCarrinhos = styled.div`
   flex-direction: column;
   margin: 7% 5% 0 0;
   width: 18%;
-  height: 70vh;
+  height: 100%;
+  min-height: 70vh;
   padding-left: 10px;
-  background-color: rgb(94, 3, 94);
+  /* background-color: black; */
   color: white;
   box-shadow: 1px 2px 8px 1px rgb(0 0 0 / 80%);
   border-radius: 4%;
-  position: absolute;
   right: 0;
 `;
 
@@ -42,6 +42,7 @@ const ContainerValor = styled.p`
   font-weight: bold;
   display: flex;
   justify-content: center;
+  margin-bottom: 10px;
 `;
 
 const Nome = styled.div`
@@ -59,14 +60,14 @@ const Icone = styled.img`
 const ContainerQuantidade = styled.div`
   font-size: 15px;
   font-weight: bold;
-`
+`;
 
 const Carrinhos = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-top: 10px;
-`
+  margin-top: 8px;
+`;
 
 class Carrinho extends React.Component {
   render() {
@@ -76,11 +77,13 @@ class Carrinho extends React.Component {
           <ContainerTexto>
             <Nome>{produto.nome}</Nome>
             <NomeContainer>
-              <Icone  
+              <Icone
                 src={menorque}
                 onClick={() => this.props.removerQuantidade(index)}
               />
-              <ContainerQuantidade>&nbsp;{produto.quantidade}&nbsp;</ContainerQuantidade>
+              <ContainerQuantidade>
+                &nbsp;{produto.quantidade}&nbsp;
+              </ContainerQuantidade>
               <Icone
                 src={maiorque}
                 onClick={() => this.props.adicionarQuantidade(index)}
@@ -105,10 +108,8 @@ class Carrinho extends React.Component {
         <NomeContainer>
           <IconeCarrinho src={iconeCar} />
           <h2>Seus Produtos</h2>
-        </NomeContainer >
-        <Carrinhos>
-          {carrinhos}
-        </Carrinhos>
+        </NomeContainer>
+        <Carrinhos>{carrinhos}</Carrinhos>
         <ContainerValor>Valor Total: R$ {somaPrecos}</ContainerValor>
       </ContainerCarrinhos>
     );
