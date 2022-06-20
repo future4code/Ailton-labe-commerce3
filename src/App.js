@@ -48,24 +48,17 @@ const Produtos = styled.div`
 class App extends React.Component {
   state = {
     produto: [
-      {nome: "Camiseta masculina astronauta preta",preco: 150,quantidade: 1,imagensExtra: [produto1, produto12, produto13]},
-      {nome: "Moletom light Nasa retro branco",preco: 200,quantidade: 1,imagensExtra: [produto6, produto61]},
-      {nome: "Camisa relax de viscose estampada nasa manga curta preta",preco: 200,quantidade: 1,imagensExtra: [produto7, produto71]},
-      {nome: "Camiseta Nasa Logo - Plus size branca",preco: 200,quantidade: 1,imagensExtra: [produto9, produto91, produto92]},
-      {nome: "Camiseta Nasa Vintage - Plus size verde musgo",preco: 200,quantidade: 1,imagensExtra: [produto10, produto101, produto102]},
-      {nome: "Camiseta masculina Raglan Nasa",preco: 200,quantidade: 1,imagensExtra: [produto8, produto81]},
-      {nome: "Camiseta I need my space - preta",preco: 200,quantidade: 1,imagensExtra: [produto11, produto112, produto111]},
-      {nome: "Camisa meninos estampa astronauta",preco: 200,quantidade: 1,imagensExtra: [produto2, produto21, produto22]},
-      {nome: "Camisa meninos botões estampa galáxia",preco: 200,quantidade: 1,imagensExtra: [produto3, produto31, produto32]},
-      {nome: "Camisa feminina estampa astronauta preta",preco: 200,quantidade: 1,imagensExtra: [produto4, produto41, produto42]},
-      {nome: "Camiseta meninos estampa de astronauta refletiva",preco: 200,quantidade: 1,imagensExtra: [produto5, produto51]},
-      {
-        nome: "Produto exemplo",
-        preco: 200,
-        quantidade: 1,
-        imagensExtra: []
-      }
-
+      {nome: "Camiseta masculina astronauta preta",preco: " 40.00",quantidade: 1,imagensExtra: [produto1, produto12, produto13]},
+      {nome: "Moletom light Nasa retro branco",preco: " 60.00",quantidade: 1,imagensExtra: [produto6, produto61]},
+      {nome: "Camisa relax de viscose estampada nasa manga curta preta",preco: " 40.00",quantidade: 1,imagensExtra: [produto7, produto71]},
+      {nome: "Camiseta Nasa Logo - Plus size branca",preco: " 50.00",quantidade: 1,imagensExtra: [produto9, produto91, produto92]},
+      {nome: "Camiseta Nasa Vintage - Plus size verde musgo",preco: " 50.00",quantidade: 1,imagensExtra: [produto10, produto101, produto102]},
+      {nome: "Camiseta masculina Raglan Nasa",preco: " 40.00",quantidade: 1,imagensExtra: [produto8, produto81]},
+      {nome: "Camiseta I need my space - preta",preco: " 40.00",quantidade: 1,imagensExtra: [produto11, produto112, produto111]},
+      {nome: "Camisa meninos estampa astronauta",preco: " 50.00",quantidade: 1,imagensExtra: [produto2, produto21, produto22]},
+      {nome: "Camisa meninos botões estampa galáxia",preco: " 50.00",quantidade: 1,imagensExtra: [produto3, produto31, produto32]},
+      {nome: "Camisa feminina estampa astronauta preta",preco: " 50.00",quantidade: 1,imagensExtra: [produto4, produto41, produto42]},
+      {nome: "Camiseta meninos estampa de astronauta refletiva",preco: " 50.00",quantidade: 1,imagensExtra: [produto5, produto51]},
     ],
     carrinho: [],
     arrCarrinhoOpcao: [],

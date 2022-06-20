@@ -25,10 +25,10 @@ const Container = styled.div`
 `;
 const Img = styled.img`
   display: flex;
-  border: 1px solid black;
   width: 65%;
   height: 74%;
   box-shadow: 1px 2px 8px 1px rgb(0 0 0 / 30%);
+  border-radius: 4%;
 `
 
 const ImgMenor = styled.img`
@@ -36,6 +36,7 @@ const ImgMenor = styled.img`
   &:hover {
     cursor: pointer;
   }
+  border-radius: 4%;
 `;
 
 const ContainerImagemMenor = styled.div`
